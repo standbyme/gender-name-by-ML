@@ -3,15 +3,14 @@ import numpy
 from sklearn.linear_model import LogisticRegression
 from sklearn.externals import joblib
 
-name = "奔驰"
-last_four_words_in_name = name[-4:]
-length_of_last_four_words_in_name = len(last_four_words_in_name)
-
+pad = numpy.array([0,0])
 def word_to_vec(word):
     array = [0.12,0.56]
     return numpy.array(array)
 
-pad = numpy.array([0,0])
+name = "奔驰ddd"
+last_four_words_in_name = name[-4:]
+length_of_last_four_words_in_name = len(last_four_words_in_name)
 
 def f(i):
     if i<length_of_last_four_words_in_name:
@@ -23,8 +22,8 @@ def f(i):
         return pad
 
 name_vec = numpy.array(list(map(f,range(0,4)))).flatten()
-
 data = numpy.array([name_vec])
+
 print(data)
 # data = [[]]
 X = numpy.array(data)
