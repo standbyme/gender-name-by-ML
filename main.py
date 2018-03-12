@@ -7,13 +7,20 @@ name = "奔驰"
 last_four_words_in_name = name[-4:]
 length_of_last_four_words_in_name = len(last_four_words_in_name)
 
+def word_to_vec(word):
+    array = [0.12,0.56]
+    return numpy.array(array)
+
+pad = numpy.array([0,0])
+
 def f(i):
     if i<length_of_last_four_words_in_name:
         single_word = last_four_words_in_name[i]
-        # return single_word
-        return [1]
+        word_vec = word_to_vec(single_word)
+        print(word_vec)
+        return word_vec
     else:
-        return [0]
+        return pad
 
 name_vec = numpy.array(list(map(f,range(0,4)))).flatten()
 
