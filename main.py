@@ -51,10 +51,8 @@ def main(name):
         vec = name_vec_with_status['vec']
         data = numpy.array([vec])
         X = numpy.array(data)
-        print(X.shape)
+        predicted = model.predict(X)
+        return {'status':1,'result':int(predicted[0])}
 
 
-main('官网上建议')
-# predicted = model.predict(X)
-# print(predicted[0])
-# "官网上建议"[-4:]
+print(main('dasfasfda'))
