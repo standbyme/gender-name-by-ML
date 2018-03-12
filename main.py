@@ -8,7 +8,7 @@ model = joblib.load("model.m")
 pad = numpy.zeros(1024)
 
 def single_word_to_vec(single_word):
-    word2vec_url = "http://127.0.0.1:1234"
+    word2vec_url = "http://wordvec_front:1234"
     request = requests.post(word2vec_url, data = {'word':single_word})
     json_data = request.json()
 
