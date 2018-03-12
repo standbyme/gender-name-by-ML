@@ -6,12 +6,16 @@ from sklearn.externals import joblib
 name = "奔驰"
 last_four_words_in_name = name[-4:]
 length_of_last_four_words_in_name = len(last_four_words_in_name)
-name_vec = []
-for i in range(0,4):
+
+def f(i):
     if i<length_of_last_four_words_in_name:
-        name_vec.append(name[i])
+        single_word = last_four_words_in_name[i]
+        return single_word
     else:
-        name_vec.append(0)
+        return 0
+
+name_vec = list(map(f,range(0,4)))
+
 
 print(name_vec)
 data = numpy.array([name_vec])
