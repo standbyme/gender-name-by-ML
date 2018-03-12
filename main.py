@@ -55,4 +55,21 @@ def main(name):
         return {'status':1,'result':int(predicted[0])}
 
 
-print(main('dasfasfda'))
+from flask import Flask
+from flask_restful import Resource, Api,reqparse
+
+app = Flask(__name__)
+api = Api(app)
+parser = reqparse.RequestParser()
+parser.add_argument('name')
+
+class HelloWorld(Resource):
+    def post(self):
+        args = parser.parse_args()
+        name = args['name']
+        return main(name)
+
+api.add_resource(HelloWorld, '/name2gender')
+
+if __name__ == '__main__':
+    app.run(debug=True)
