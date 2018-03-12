@@ -10,15 +10,15 @@ length_of_last_four_words_in_name = len(last_four_words_in_name)
 def f(i):
     if i<length_of_last_four_words_in_name:
         single_word = last_four_words_in_name[i]
-        return single_word
+        # return single_word
+        return [1]
     else:
-        return 0
+        return [0]
 
-name_vec = list(map(f,range(0,4)))
+name_vec = numpy.array(list(map(f,range(0,4)))).flatten()
 
-
-print(name_vec)
 data = numpy.array([name_vec])
+print(data)
 # data = [[]]
 X = numpy.array(data)
 print(X.shape)
